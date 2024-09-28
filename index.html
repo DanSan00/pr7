@@ -29,24 +29,17 @@
 
     <!-- Задание3 -->
 
-    <body style="height:2000px">
+    <div style="height:2000px">
         Нажмите
         <img src="https://ru.js.cx/clipart/ball.svg" id="ball">
-    </body>
-
+    </div>
     <script>
-        var ball = document.getElementById('ball');
-
-        document.addEventListener('click', function (e) {
-            var x = e.clientX;
-            var y = e.clientY;
-
-            ball.style.left = x + 'px';
-            ball.style.top = y - ball.offsetHeight / 2 + 'px';
-
-            ball.classList.add('animate');
-            setTimeout(function () { ball.classList.remove('animate'); }, 1000);
-        });
+        document.body.onclick = function (event) {
+            const ball = document.getElementById('ball');
+            const x = event.clientX - ball.offsetWidth / 2;
+            const y = event.clientY - ball.offsetHeight / 2;
+            ball.style.transform = `translate(${x}px, ${y}px)`;
+        }
     </script>
 
 </body>
